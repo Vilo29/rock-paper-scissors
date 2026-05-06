@@ -28,24 +28,24 @@ function playRound(playerChoice, computerChoice) {
     else {
         computerScore++;
         document.querySelector(".computer-score").textContent = computerScore;
-        console.log(`You lost! ${computerChoice} beats ${playerChoice}`)
+        console.log(`You lost! ${computerChoice} beats ${playerChoice}`);
         document.querySelector(".result").textContent = `You lost! ${computerChoice} beats ${playerChoice}`;
+    }
+
+    if (playerScore === 5) {
+        document.querySelector(".result").textContent = "You have won this Rock Paper Scissors game!";
+        disableButtons();
+    }
+    else if (computerScore === 5) {
+        document.querySelector(".result").textContent = "We can not win every time... you lost!";
+        disableButtons();
     }
 }
 
-// The Game start (BO5)
-function playGame() {
-    // Decide who have won this BO5 game of Rock Paper Scissors
-    console.clear();
-    if (playerScore > computerScore) {
-        console.log("You have won this BO5 game of Rock Paper Scissors!")
-    }
-    else if (playerScore === computerScore) {
-        console.log("This BO5 game of Rock Paper Scissors has ended in a tie!")
-    }
-    else {
-        console.log("We can not win every time... you lost!")
-    }
+function disableButtons() {
+    buttons.forEach(button => {
+        button.disabled = true;
+    })
 }
 
 let computerScore = 0;
