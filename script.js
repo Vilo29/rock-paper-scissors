@@ -17,16 +17,13 @@ function playRound(playerChoice, computerChoice) {
         playerChoice === "Scissors" && computerChoice === "Paper"
     ) {
         playerScore++;
-        alert(`You win!\n\nYour Choice: ${playerChoice}\nComputer choice: ${computerChoice}`)
         console.log(`You win! ${playerChoice} beats ${computerChoice}`)
     }
     else if (playerChoice === computerChoice) {
-        alert(`It's a tie!\n\nYour Choice: ${playerChoice}\nComputer choice: ${computerChoice}`)
         console.log("It's a tie!")
     }
     else {
         computerScore++;
-        alert(`You lost!\n\nYour Choice: ${playerChoice}\nComputer choice: ${computerChoice}`)
         console.log(`You lost! ${computerChoice} beats ${playerChoice}`)
     }
 }
@@ -36,15 +33,12 @@ function playGame() {
     // Decide who have won this BO5 game of Rock Paper Scissors
     console.clear();
     if (playerScore > computerScore) {
-        alert(`You have won this BO5 game of Rock Paper Scissors!\n\nYour score: ${playerScore}\nComputer score: ${computerScore}`)
         console.log("You have won this BO5 game of Rock Paper Scissors!")
     }
     else if (playerScore === computerScore) {
-        alert(`This BO5 game of Rock Paper Scissors has ended in a tie!\n\nYour score: ${playerScore}\nComputer score: ${computerScore}`)
         console.log("This BO5 game of Rock Paper Scissors has ended in a tie!")
     }
     else {
-        alert(`We can not win every time... you lost!\n\nYour score: ${playerScore}\nComputer score: ${computerScore}`)
         console.log("We can not win every time... you lost!")
     }
 }
@@ -62,4 +56,3 @@ buttons.forEach(button => {
         playRound(playerSelection, computerSelection);
     });
 });
-playGame();
