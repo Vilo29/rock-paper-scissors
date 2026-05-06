@@ -43,20 +43,6 @@ function playRound(playerChoice, computerChoice) {
 
 // The Game start (BO5)
 function playGame() {
-    for (let i = 0; i < 5; i++) {
-        if (playerScore === 3 || computerScore === 3) { // Stop the game when someone has already won 3 rounds
-            break;
-        }
-
-        const playerSelection = getPlayerChoice();  
-        const computerSelection = getComputerChoice();
-
-        console.clear(); // Clear console before show the next round result
-        console.log("Your choice: " + playerSelection);
-        console.log("Computer choice: " + computerSelection);
-
-        playRound(playerSelection, computerSelection)
-    }
     // Decide who have won this BO5 game of Rock Paper Scissors
     console.clear();
     if (playerScore > computerScore) {
@@ -76,4 +62,14 @@ function playGame() {
 let computerScore = 0;
 let playerScore = 0;
 
+const buttons = document.querySelectorAll(".selection");
+
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const playerSelection = e.target.textContent;
+        let computerSelection = getComputerChoice();
+        console.log(playerSelection + " - " + computerSelection); // to check that everything is okay
+        playRound(playerSelection, computerSelection);
+    });
+});
 playGame();
