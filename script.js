@@ -17,14 +17,19 @@ function playRound(playerChoice, computerChoice) {
         playerChoice === "Scissors" && computerChoice === "Paper"
     ) {
         playerScore++;
+        document.querySelector(".player-score").textContent = playerScore;
         console.log(`You win! ${playerChoice} beats ${computerChoice}`)
+        document.querySelector(".result").textContent = `You win! ${playerChoice} beats ${computerChoice}`;
     }
     else if (playerChoice === computerChoice) {
         console.log("It's a tie!")
+        document.querySelector(".result").textContent = "It's a tie!";
     }
     else {
         computerScore++;
+        document.querySelector(".computer-score").textContent = computerScore;
         console.log(`You lost! ${computerChoice} beats ${playerChoice}`)
+        document.querySelector(".result").textContent = `You lost! ${computerChoice} beats ${playerChoice}`;
     }
 }
 
